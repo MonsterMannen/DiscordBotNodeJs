@@ -2,6 +2,7 @@ const YTDL = require('ytdl-core');
 const YTF = require('youtube-finder');
 const main = require('./bot.js');
 const Discord = require('discord.js');
+const moment = require('moment');
 
 // all servers with their play queues and audio providers
 var guilds = {};
@@ -40,11 +41,12 @@ exports.queueSong = (message, searchString) => {
 
         // get info about video
         YTDL.getInfo(vidId, (err, info) => {
-            // parse time to minutes:seconds
-            let min = ~~(info.length_seconds / 60);
-            let sec = ('0' + ~~(info.length_seconds % 60)).slice(0, 2);
-            let vidL = min + ":" + sec;
-
+            // fixing noob code
+            var vidL = moment().startOf('day').seconds(info.length_seconds).format('mm:ss');
+            if (info.length_seconds > 3600) {
+              vidL = moment().startOf('day').seconds(info.length_seconds).format('HH:mm:ss');
+            };
+            
             var song = {
                 id: vidId,
                 title: vidId,
