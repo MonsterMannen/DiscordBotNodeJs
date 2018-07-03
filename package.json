@@ -17,6 +17,7 @@
     "fortnitetracker-7days-stats": "^3.1.1",
     "jimp": "^0.2.28",
     "libsodium-wrappers": "^0.7.3",
+    "moment": "^2.22.2",
     "node-opus": "^0.2.9",
     "request": "^2.87.0",
     "youtube-finder": "^1.0.1",
