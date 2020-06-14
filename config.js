@@ -1,6 +1,7 @@
 exports.config = {
     // bot owner discord id
     OWNER_ID: "101041126537973760",
+    ADMINS_ID: [],
 
     // bot prefix
     PREFIX: ".",
