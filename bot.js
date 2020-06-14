@@ -1,12 +1,12 @@
 require('dotenv').config()
-const Discord = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const cfg = require('./config.js');
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // bot client
-const client = new Discord.Client();
+const client = new Client();
 
 // get config values.
 client.config = {
@@ -29,7 +29,7 @@ exports.commands = () => {
 }
 
 // add all commands
-client.commands = [];
+client.commands = new Collection();
 fs.readdir("./commands/", function(err, files){
     files.forEach(f => {
         const cmd = require(`./commands/${f}`);
